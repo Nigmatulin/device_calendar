@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sprintf/sprintf.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart';
 
@@ -388,16 +387,14 @@ class DeviceCalendarPlugin {
       result.errors.add(
         ResultError(
           ErrorCodes.platformSpecific,
-          sprintf(ErrorMessages.unknownDeviceExceptionTemplate,
-              [exception.code, exception.message]),
+          '${ErrorMessages.unknownDeviceExceptionTemplate.toString()}, ${[exception.code, exception.message].toString()}',
         ),
       );
     } else {
       result.errors.add(
         ResultError(
           ErrorCodes.generic,
-          sprintf(ErrorMessages.unknownDeviceGenericExceptionTemplate,
-              [exception.toString()]),
+          '${ErrorMessages.unknownDeviceGenericExceptionTemplate.toString()}, ${[exception.toString()].toString()}'
         ),
       );
     }
